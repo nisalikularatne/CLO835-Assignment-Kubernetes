@@ -30,3 +30,4 @@ override.tf.json
 .idea/
 week5
 week5.pub
+.env
