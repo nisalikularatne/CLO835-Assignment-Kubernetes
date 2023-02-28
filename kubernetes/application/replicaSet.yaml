@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: application
+  labels:
+    app: employees
+    tier: application
+
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: application
+
+  template:
+    metadata:
+      labels:
+        tier: application
+    spec:
+      containers:
+        - name: application-container
+          image: 061186295720.dkr.ecr.us-east-1.amazonaws.com/docker-containers-application-repo:latest
+          env:
+            - name: DBPWD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-root-password
+                  key: MYSQL_ROOT_PASSWORD
+            - name: DBPORT
+              value: "3306"
+            - name: DBHOST
+              value: "database.database.svc.cluster.local"
+            - name: ROUTE
+              value: "/blue"
+            - name: DBUSER
+              value: "root"
+          ports:
+              - containerPort: 8080
+      imagePullSecrets:
+              - name: secret-registry
+
