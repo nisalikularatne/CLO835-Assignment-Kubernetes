@@ -46,7 +46,6 @@ SUPPORTED_COLORS = ",".join(color_codes.keys())
 # Generate a random color
 COLOR = random.choice(["red", "green", "blue", "blue2", "darkblue", "pink", "lime"])
 
-
 @app.route(ROUTE, methods=['GET', 'POST'])
 def home():
     return render_template('addemp.html', color=color_codes[COLOR])
