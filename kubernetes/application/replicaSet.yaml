@@ -4,19 +4,18 @@ metadata:
   name: application
   labels:
     app: employees
-    tier: application
 
 spec:
   # modify replicas according to your case
   replicas: 3
   selector:
     matchLabels:
-      tier: application
+      app: employees
 
   template:
     metadata:
       labels:
-        tier: application
+        app: employees
     spec:
       containers:
         - name: application-container

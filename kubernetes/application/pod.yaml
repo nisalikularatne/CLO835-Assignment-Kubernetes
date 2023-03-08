@@ -4,7 +4,6 @@ metadata:
   name: application
   labels:
     app: employees
-    tier: application
 spec:
   containers:
     - name: application-container
