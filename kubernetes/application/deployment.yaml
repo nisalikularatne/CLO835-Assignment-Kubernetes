@@ -31,8 +31,6 @@ spec:
               value: "3306"
             - name: DBHOST
               value: "database.database.svc.cluster.local"
-            - name: ROUTE
-              value: "/blue"
             - name: DBUSER
               value: "root"
           ports:
