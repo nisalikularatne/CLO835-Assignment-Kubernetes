@@ -20,6 +20,7 @@ spec:
       containers:
         - name: application-container
           image: 061186295720.dkr.ecr.us-east-1.amazonaws.com/docker-containers-application-repo:latest
+          imagePullPolicy: Always
           env:
             - name: DBPWD
               valueFrom:
