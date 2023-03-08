@@ -24,6 +24,7 @@ db_conn = connections.Connection(
     db= DATABASE
     
 )
+
 output = {}
 table = 'employee';
 
