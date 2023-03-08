@@ -4,19 +4,18 @@ metadata:
   name: database
   labels:
     app: mysql
-    tier: database
 
 spec:
   # modify replicas according to your case
   replicas: 3
   selector:
     matchLabels:
-      tier: database
+      app: mysql
 
   template:
     metadata:
       labels:
-        tier: database
+        app: mysql
     spec:
       containers:
         - name: database-container
